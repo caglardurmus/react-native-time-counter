@@ -2,7 +2,7 @@
   "name": "react-native-time-counter",
   "title": "React Native Time Counter",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Time counter developed as a React Native library.",
   "main": "index.js",
   "files": [
     "README.md",

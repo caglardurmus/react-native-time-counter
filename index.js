@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, ViewStyle, TextStyle} from "react-native";
 
 type Props = {
-    state?: 'forward' | 'countDown',
-    countDownSeconds?: number,
+    state: 'forward' | 'countdown',
+    countdownSeconds?: number,
     maxSeconds?: number,
     style?: ViewStyle,
     fontStyle?: TextStyle,
-    onCountDownEnd?: function,
+    onCountdownEnd?: function,
     onMaxSeconds?: function,
     hideHour?: boolean
 };
@@ -18,17 +18,17 @@ export const TimeCounter = (props: Props) => {
 
     useEffect(() => {
         startInterval();
-    }, [props.state, props.countDownSeconds]);
+    }, [props.state, props.countdownSeconds]);
 
     function startInterval() {
         clearInterval(intervalState);
 
         const isForward = props.state == 'forward';
-        const isCountDown = props.state == 'countDown'
+        const isCountdown = props.state == 'countdown'
         if (isForward) {
             setCount(0);
-        } else if (isCountDown) {
-            setCount(props.countDownSeconds);
+        } else if (isCountdown) {
+            setCount(props.countdownSeconds);
         }
 
         const interval = setInterval(() => {
@@ -43,14 +43,14 @@ export const TimeCounter = (props: Props) => {
                     }
                     return newCount
                 });
-            } else if (isCountDown) {
+            } else if (isCountdown) {
                 setCount(count => {
                     if (count > 0) {
                         return (count - 1);
                     } else {
                         clearInterval(interval);
-                        if (props.onCountDownEnd) {
-                            props.onCountDownEnd();
+                        if (props.onCountdownEnd) {
+                            props.onCountdownEnd();
                         }
                         return 0;
                     }
@@ -84,7 +84,7 @@ export const TimeCounter = (props: Props) => {
 
 TimeCounter.defaultProps = {
     state: 'forward',
-    countDownSeconds: 120,
+    countdownSeconds: 120,
     hideHour: true
 }
 
