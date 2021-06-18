@@ -36,7 +36,7 @@ import TimeCounter from 'react-native-time-counter';
 ```javascript
 
 <TimeCounter state={"countdown"}
-             fontSize={getValue(30)}
+             hideHour={false}
              onCountdownEnd={()=>console.log('Test')}
              countdownSeconds={10}/>
 
