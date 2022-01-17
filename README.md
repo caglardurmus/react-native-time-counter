@@ -41,3 +41,5 @@ import TimeCounter from 'react-native-time-counter';
              countdownSeconds={10}/>
 
 ```
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](http://www.bynogame.com/tr/destekle/caglardurmus)
